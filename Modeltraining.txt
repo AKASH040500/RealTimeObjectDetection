@@ -1,0 +1,803 @@
+Microsoft Windows [Version 10.0.19043.1826]
+(c) Microsoft Corporation. All rights reserved.
+
+E:\RealTimeObjectDetection>python Tensorflow/models/research/object_detection/model_main_tf2.py --model_dir=Tensorflow/workspace/models/my_ssd_mobnet --pipeline_config_path=Tensorflow/workspace/models/my_ssd_mobnet/pipeline.config --num_train_steps=6000
+2022-07-18 18:37:36.030409: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+Using TensorFlow backend.
+2022-07-18 18:37:44.052317: I tensorflow_io/core/kernels/cpu_check.cc:128] Your CPU supports instructions that this TensorFlow IO binary was not compiled to use: SSE SSE2 SSE3 SSE4.1 SSE4.2 AVX AVX2 FMA
+C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\tensorflow_addons\utils\ensure_tf_install.py:67: UserWarning: Tensorflow Addons supports using Python ops for all Tensorflow versions above or equal to 2.7.0 and strictly below 2.10.0 (nightly versions are not supported).
+ The versions of TensorFlow you are currently using is 2.3.0 and is not supported.
+Some things might work, some things might not.
+If you were to encounter a bug, do not file an issue.
+If you want to make sure you're using a tested and supported configuration, either change the TensorFlow version or the TensorFlow Addons's version.
+You can find the compatibility matrix in TensorFlow Addon's readme:
+https://github.com/tensorflow/addons
+  UserWarning,
+2022-07-18 18:37:45.120672: W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2022-07-18 18:37:45.120839: W tensorflow/stream_executor/cuda/cuda_driver.cc:312] failed call to cuInit: UNKNOWN ERROR (303)
+2022-07-18 18:37:45.124062: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: SINGHAM
+2022-07-18 18:37:45.124217: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: SINGHAM
+2022-07-18 18:37:45.137611: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-07-18 18:37:45.145117: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1c175b8c780 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2022-07-18 18:37:45.145219: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+WARNING:tensorflow:There are non-GPU devices in `tf.distribute.Strategy`, not using nccl allreduce.
+W0718 18:37:45.166479  8312 cross_device_ops.py:1202] There are non-GPU devices in `tf.distribute.Strategy`, not using nccl allreduce.
+INFO:tensorflow:Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:CPU:0',)
+I0718 18:37:45.166479  8312 mirrored_strategy.py:341] Using MirroredStrategy with devices ('/job:localhost/replica:0/task:0/device:CPU:0',)
+INFO:tensorflow:Maybe overwriting train_steps: 6000
+I0718 18:37:45.229006  8312 config_util.py:552] Maybe overwriting train_steps: 6000
+INFO:tensorflow:Maybe overwriting use_bfloat16: False
+I0718 18:37:45.229006  8312 config_util.py:552] Maybe overwriting use_bfloat16: False
+INFO:tensorflow:Reading unweighted datasets: ['Tensorflow/workspace/annotations/train.record']
+I0718 18:37:45.338316  8312 dataset_builder.py:162] Reading unweighted datasets: ['Tensorflow/workspace/annotations/train.record']
+INFO:tensorflow:Reading record datasets for input file: ['Tensorflow/workspace/annotations/train.record']
+I0718 18:37:45.338316  8312 dataset_builder.py:79] Reading record datasets for input file: ['Tensorflow/workspace/annotations/train.record']
+INFO:tensorflow:Number of filenames to read: 1
+I0718 18:37:45.338316  8312 dataset_builder.py:80] Number of filenames to read: 1
+WARNING:tensorflow:num_readers has been reduced to 1 to match input file shards.
+W0718 18:37:45.353934  8312 dataset_builder.py:87] num_readers has been reduced to 1 to match input file shards.
+WARNING:tensorflow:From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\object_detection\builders\dataset_builder.py:104: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.experimental.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.experimental_deterministic`.
+W0718 18:37:45.369657  8312 deprecation.py:323] From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\object_detection\builders\dataset_builder.py:104: parallel_interleave (from tensorflow.python.data.experimental.ops.interleave_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.interleave(map_func, cycle_length, block_length, num_parallel_calls=tf.data.experimental.AUTOTUNE)` instead. If sloppy execution is desired, use `tf.data.Options.experimental_deterministic`.
+WARNING:tensorflow:From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\object_detection\builders\dataset_builder.py:236: DatasetV1.map_with_legacy_function (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.map()
+W0718 18:37:45.494920  8312 deprecation.py:323] From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\object_detection\builders\dataset_builder.py:236: DatasetV1.map_with_legacy_function (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.map()
+WARNING:tensorflow:From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\tensorflow\python\util\dispatch.py:201: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+W0718 18:37:56.644553  8312 deprecation.py:323] From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\tensorflow\python\util\dispatch.py:201: sparse_to_dense (from tensorflow.python.ops.sparse_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Create a `tf.sparse.SparseTensor` and use `tf.sparse.to_dense` instead.
+WARNING:tensorflow:From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\tensorflow\python\util\dispatch.py:201: sample_distorted_bounding_box (from tensorflow.python.ops.image_ops_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+`seed2` arg is deprecated.Use sample_distorted_bounding_box_v2 instead.
+W0718 18:37:59.897293  8312 deprecation.py:323] From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\tensorflow\python\util\dispatch.py:201: sample_distorted_bounding_box (from tensorflow.python.ops.image_ops_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+`seed2` arg is deprecated.Use sample_distorted_bounding_box_v2 instead.
+WARNING:tensorflow:From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\object_detection\inputs.py:288: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+W0718 18:38:01.771439  8312 deprecation.py:323] From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\object_detection\inputs.py:288: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+WARNING:tensorflow:From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\object_detection\model_lib_v2.py:166: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+W0718 18:38:07.481568  7196 deprecation.py:323] From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\object_detection\model_lib_v2.py:166: set_learning_phase (from tensorflow.python.keras.backend) is deprecated and will be removed after 2020-10-11.
+Instructions for updating:
+Simply pass a True/False value to the `training` argument of the `__call__` method of your layer or model.
+WARNING:tensorflow:From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\tensorflow\python\util\deprecation.py:574: calling map_fn_v2 (from tensorflow.python.ops.map_fn) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Use fn_output_signature instead
+W0718 18:38:30.726108  8852 deprecation.py:506] From C:\Users\AKASH SINGH\AppData\Local\Programs\Python\Python37\lib\site-packages\tensorflow\python\util\deprecation.py:574: calling map_fn_v2 (from tensorflow.python.ops.map_fn) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Use fn_output_signature instead
+INFO:tensorflow:Step 100 per-step time 3.392s
+I0718 18:44:11.238688  8312 model_lib_v2.py:707] Step 100 per-step time 3.392s
+INFO:tensorflow:{'Loss/classification_loss': 0.6629731,
+ 'Loss/localization_loss': 0.42299828,
+ 'Loss/regularization_loss': 0.15395027,
+ 'Loss/total_loss': 1.2399216,
+ 'learning_rate': 0.0319994}
+I0718 18:44:11.238688  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.6629731,
+ 'Loss/localization_loss': 0.42299828,
+ 'Loss/regularization_loss': 0.15395027,
+ 'Loss/total_loss': 1.2399216,
+ 'learning_rate': 0.0319994}
+INFO:tensorflow:Step 200 per-step time 2.892s
+I0718 18:49:00.407659  8312 model_lib_v2.py:707] Step 200 per-step time 2.892s
+INFO:tensorflow:{'Loss/classification_loss': 0.3863435,
+ 'Loss/localization_loss': 0.17539412,
+ 'Loss/regularization_loss': 0.15411031,
+ 'Loss/total_loss': 0.71584797,
+ 'learning_rate': 0.0373328}
+I0718 18:49:00.407659  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.3863435,
+ 'Loss/localization_loss': 0.17539412,
+ 'Loss/regularization_loss': 0.15411031,
+ 'Loss/total_loss': 0.71584797,
+ 'learning_rate': 0.0373328}
+INFO:tensorflow:Step 300 per-step time 3.097s
+I0718 18:54:10.069753  8312 model_lib_v2.py:707] Step 300 per-step time 3.097s
+INFO:tensorflow:{'Loss/classification_loss': 0.33719784,
+ 'Loss/localization_loss': 0.13651934,
+ 'Loss/regularization_loss': 0.15405032,
+ 'Loss/total_loss': 0.6277675,
+ 'learning_rate': 0.0426662}
+I0718 18:54:10.069753  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.33719784,
+ 'Loss/localization_loss': 0.13651934,
+ 'Loss/regularization_loss': 0.15405032,
+ 'Loss/total_loss': 0.6277675,
+ 'learning_rate': 0.0426662}
+INFO:tensorflow:Step 400 per-step time 2.972s
+I0718 18:59:07.358442  8312 model_lib_v2.py:707] Step 400 per-step time 2.972s
+INFO:tensorflow:{'Loss/classification_loss': 0.5589599,
+ 'Loss/localization_loss': 0.23355088,
+ 'Loss/regularization_loss': 0.15393254,
+ 'Loss/total_loss': 0.9464433,
+ 'learning_rate': 0.047999598}
+I0718 18:59:07.358442  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.5589599,
+ 'Loss/localization_loss': 0.23355088,
+ 'Loss/regularization_loss': 0.15393254,
+ 'Loss/total_loss': 0.9464433,
+ 'learning_rate': 0.047999598}
+INFO:tensorflow:Step 500 per-step time 2.899s
+I0718 19:03:57.226926  8312 model_lib_v2.py:707] Step 500 per-step time 2.899s
+INFO:tensorflow:{'Loss/classification_loss': 0.4527773,
+ 'Loss/localization_loss': 0.063929476,
+ 'Loss/regularization_loss': 0.15379359,
+ 'Loss/total_loss': 0.6705004,
+ 'learning_rate': 0.053333}
+I0718 19:03:57.226926  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.4527773,
+ 'Loss/localization_loss': 0.063929476,
+ 'Loss/regularization_loss': 0.15379359,
+ 'Loss/total_loss': 0.6705004,
+ 'learning_rate': 0.053333}
+INFO:tensorflow:Step 600 per-step time 3.409s
+I0718 19:09:38.095390  8312 model_lib_v2.py:707] Step 600 per-step time 3.409s
+INFO:tensorflow:{'Loss/classification_loss': 0.40300924,
+ 'Loss/localization_loss': 0.19663261,
+ 'Loss/regularization_loss': 0.15369312,
+ 'Loss/total_loss': 0.753335,
+ 'learning_rate': 0.0586664}
+I0718 19:09:38.095390  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.40300924,
+ 'Loss/localization_loss': 0.19663261,
+ 'Loss/regularization_loss': 0.15369312,
+ 'Loss/total_loss': 0.753335,
+ 'learning_rate': 0.0586664}
+INFO:tensorflow:Step 700 per-step time 3.295s
+I0718 19:15:07.562475  8312 model_lib_v2.py:707] Step 700 per-step time 3.295s
+INFO:tensorflow:{'Loss/classification_loss': 0.35958079,
+ 'Loss/localization_loss': 0.08636368,
+ 'Loss/regularization_loss': 0.15369828,
+ 'Loss/total_loss': 0.59964275,
+ 'learning_rate': 0.0639998}
+I0718 19:15:07.578106  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.35958079,
+ 'Loss/localization_loss': 0.08636368,
+ 'Loss/regularization_loss': 0.15369828,
+ 'Loss/total_loss': 0.59964275,
+ 'learning_rate': 0.0639998}
+INFO:tensorflow:Step 800 per-step time 3.294s
+I0718 19:20:36.958699  8312 model_lib_v2.py:707] Step 800 per-step time 3.294s
+INFO:tensorflow:{'Loss/classification_loss': 0.24890956,
+ 'Loss/localization_loss': 0.09137879,
+ 'Loss/regularization_loss': 0.1537116,
+ 'Loss/total_loss': 0.49399996,
+ 'learning_rate': 0.069333196}
+I0718 19:20:36.958699  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.24890956,
+ 'Loss/localization_loss': 0.09137879,
+ 'Loss/regularization_loss': 0.1537116,
+ 'Loss/total_loss': 0.49399996,
+ 'learning_rate': 0.069333196}
+INFO:tensorflow:Step 900 per-step time 3.217s
+I0718 19:25:58.648715  8312 model_lib_v2.py:707] Step 900 per-step time 3.217s
+INFO:tensorflow:{'Loss/classification_loss': 0.2785133,
+ 'Loss/localization_loss': 0.09871189,
+ 'Loss/regularization_loss': 0.15347993,
+ 'Loss/total_loss': 0.53070515,
+ 'learning_rate': 0.074666604}
+I0718 19:25:58.648715  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.2785133,
+ 'Loss/localization_loss': 0.09871189,
+ 'Loss/regularization_loss': 0.15347993,
+ 'Loss/total_loss': 0.53070515,
+ 'learning_rate': 0.074666604}
+INFO:tensorflow:Step 1000 per-step time 3.203s
+I0718 19:31:18.948428  8312 model_lib_v2.py:707] Step 1000 per-step time 3.203s
+INFO:tensorflow:{'Loss/classification_loss': 0.2602239,
+ 'Loss/localization_loss': 0.16055205,
+ 'Loss/regularization_loss': 0.15345287,
+ 'Loss/total_loss': 0.5742288,
+ 'learning_rate': 0.08}
+I0718 19:31:18.948428  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.2602239,
+ 'Loss/localization_loss': 0.16055205,
+ 'Loss/regularization_loss': 0.15345287,
+ 'Loss/total_loss': 0.5742288,
+ 'learning_rate': 0.08}
+INFO:tensorflow:Step 1100 per-step time 3.206s
+I0718 19:36:39.560692  8312 model_lib_v2.py:707] Step 1100 per-step time 3.206s
+INFO:tensorflow:{'Loss/classification_loss': 0.28226852,
+ 'Loss/localization_loss': 0.18499443,
+ 'Loss/regularization_loss': 0.15328136,
+ 'Loss/total_loss': 0.6205443,
+ 'learning_rate': 0.07999918}
+I0718 19:36:39.560692  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.28226852,
+ 'Loss/localization_loss': 0.18499443,
+ 'Loss/regularization_loss': 0.15328136,
+ 'Loss/total_loss': 0.6205443,
+ 'learning_rate': 0.07999918}
+INFO:tensorflow:Step 1200 per-step time 3.263s
+I0718 19:42:05.905861  8312 model_lib_v2.py:707] Step 1200 per-step time 3.263s
+INFO:tensorflow:{'Loss/classification_loss': 0.29259858,
+ 'Loss/localization_loss': 0.110739574,
+ 'Loss/regularization_loss': 0.15302621,
+ 'Loss/total_loss': 0.55636436,
+ 'learning_rate': 0.079996705}
+I0718 19:42:05.921489  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.29259858,
+ 'Loss/localization_loss': 0.110739574,
+ 'Loss/regularization_loss': 0.15302621,
+ 'Loss/total_loss': 0.55636436,
+ 'learning_rate': 0.079996705}
+INFO:tensorflow:Step 1300 per-step time 3.194s
+I0718 19:47:25.299926  8312 model_lib_v2.py:707] Step 1300 per-step time 3.194s
+INFO:tensorflow:{'Loss/classification_loss': 0.397282,
+ 'Loss/localization_loss': 0.056498315,
+ 'Loss/regularization_loss': 0.15274788,
+ 'Loss/total_loss': 0.6065282,
+ 'learning_rate': 0.0799926}
+I0718 19:47:25.299926  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.397282,
+ 'Loss/localization_loss': 0.056498315,
+ 'Loss/regularization_loss': 0.15274788,
+ 'Loss/total_loss': 0.6065282,
+ 'learning_rate': 0.0799926}
+INFO:tensorflow:Step 1400 per-step time 3.204s
+I0718 19:52:45.677865  8312 model_lib_v2.py:707] Step 1400 per-step time 3.204s
+INFO:tensorflow:{'Loss/classification_loss': 0.24395373,
+ 'Loss/localization_loss': 0.043086953,
+ 'Loss/regularization_loss': 0.1522571,
+ 'Loss/total_loss': 0.4392978,
+ 'learning_rate': 0.07998685}
+I0718 19:52:45.677865  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.24395373,
+ 'Loss/localization_loss': 0.043086953,
+ 'Loss/regularization_loss': 0.1522571,
+ 'Loss/total_loss': 0.4392978,
+ 'learning_rate': 0.07998685}
+INFO:tensorflow:Step 1500 per-step time 3.197s
+I0718 19:58:05.399593  8312 model_lib_v2.py:707] Step 1500 per-step time 3.197s
+INFO:tensorflow:{'Loss/classification_loss': 0.2283411,
+ 'Loss/localization_loss': 0.06888005,
+ 'Loss/regularization_loss': 0.1518858,
+ 'Loss/total_loss': 0.44910693,
+ 'learning_rate': 0.07997945}
+I0718 19:58:05.399593  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.2283411,
+ 'Loss/localization_loss': 0.06888005,
+ 'Loss/regularization_loss': 0.1518858,
+ 'Loss/total_loss': 0.44910693,
+ 'learning_rate': 0.07997945}
+INFO:tensorflow:Step 1600 per-step time 3.195s
+I0718 20:03:24.933898  8312 model_lib_v2.py:707] Step 1600 per-step time 3.195s
+INFO:tensorflow:{'Loss/classification_loss': 0.23207837,
+ 'Loss/localization_loss': 0.062472023,
+ 'Loss/regularization_loss': 0.15157168,
+ 'Loss/total_loss': 0.44612208,
+ 'learning_rate': 0.079970405}
+I0718 20:03:24.949483  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.23207837,
+ 'Loss/localization_loss': 0.062472023,
+ 'Loss/regularization_loss': 0.15157168,
+ 'Loss/total_loss': 0.44612208,
+ 'learning_rate': 0.079970405}
+INFO:tensorflow:Step 1700 per-step time 3.196s
+I0718 20:08:44.546237  8312 model_lib_v2.py:707] Step 1700 per-step time 3.196s
+INFO:tensorflow:{'Loss/classification_loss': 0.17314884,
+ 'Loss/localization_loss': 0.074572824,
+ 'Loss/regularization_loss': 0.15112825,
+ 'Loss/total_loss': 0.3988499,
+ 'learning_rate': 0.07995972}
+I0718 20:08:44.546237  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.17314884,
+ 'Loss/localization_loss': 0.074572824,
+ 'Loss/regularization_loss': 0.15112825,
+ 'Loss/total_loss': 0.3988499,
+ 'learning_rate': 0.07995972}
+INFO:tensorflow:Step 1800 per-step time 3.199s
+I0718 20:14:04.471042  8312 model_lib_v2.py:707] Step 1800 per-step time 3.199s
+INFO:tensorflow:{'Loss/classification_loss': 0.15365018,
+ 'Loss/localization_loss': 0.046979357,
+ 'Loss/regularization_loss': 0.15064009,
+ 'Loss/total_loss': 0.3512696,
+ 'learning_rate': 0.0799474}
+I0718 20:14:04.486663  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.15365018,
+ 'Loss/localization_loss': 0.046979357,
+ 'Loss/regularization_loss': 0.15064009,
+ 'Loss/total_loss': 0.3512696,
+ 'learning_rate': 0.0799474}
+INFO:tensorflow:Step 1900 per-step time 3.197s
+I0718 20:19:24.130281  8312 model_lib_v2.py:707] Step 1900 per-step time 3.197s
+INFO:tensorflow:{'Loss/classification_loss': 0.31188738,
+ 'Loss/localization_loss': 0.06625156,
+ 'Loss/regularization_loss': 0.15041429,
+ 'Loss/total_loss': 0.52855325,
+ 'learning_rate': 0.07993342}
+I0718 20:19:24.130281  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.31188738,
+ 'Loss/localization_loss': 0.06625156,
+ 'Loss/regularization_loss': 0.15041429,
+ 'Loss/total_loss': 0.52855325,
+ 'learning_rate': 0.07993342}
+INFO:tensorflow:Step 2000 per-step time 3.306s
+I0718 20:24:54.741056  8312 model_lib_v2.py:707] Step 2000 per-step time 3.306s
+INFO:tensorflow:{'Loss/classification_loss': 0.20993786,
+ 'Loss/localization_loss': 0.061580975,
+ 'Loss/regularization_loss': 0.15011314,
+ 'Loss/total_loss': 0.42163196,
+ 'learning_rate': 0.07991781}
+I0718 20:24:54.741056  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.20993786,
+ 'Loss/localization_loss': 0.061580975,
+ 'Loss/regularization_loss': 0.15011314,
+ 'Loss/total_loss': 0.42163196,
+ 'learning_rate': 0.07991781}
+INFO:tensorflow:Step 2100 per-step time 3.289s
+I0718 20:30:21.992261  8312 model_lib_v2.py:707] Step 2100 per-step time 3.289s
+INFO:tensorflow:{'Loss/classification_loss': 0.17999934,
+ 'Loss/localization_loss': 0.07977144,
+ 'Loss/regularization_loss': 0.14973871,
+ 'Loss/total_loss': 0.40950948,
+ 'learning_rate': 0.07990056}
+I0718 20:30:21.992261  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.17999934,
+ 'Loss/localization_loss': 0.07977144,
+ 'Loss/regularization_loss': 0.14973871,
+ 'Loss/total_loss': 0.40950948,
+ 'learning_rate': 0.07990056}
+INFO:tensorflow:Step 2200 per-step time 3.216s
+I0718 20:35:45.228991  8312 model_lib_v2.py:707] Step 2200 per-step time 3.216s
+INFO:tensorflow:{'Loss/classification_loss': 0.15304662,
+ 'Loss/localization_loss': 0.04309992,
+ 'Loss/regularization_loss': 0.14912914,
+ 'Loss/total_loss': 0.3452757,
+ 'learning_rate': 0.07988167}
+I0718 20:35:45.228991  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.15304662,
+ 'Loss/localization_loss': 0.04309992,
+ 'Loss/regularization_loss': 0.14912914,
+ 'Loss/total_loss': 0.3452757,
+ 'learning_rate': 0.07988167}
+INFO:tensorflow:Step 2300 per-step time 3.277s
+I0718 20:41:12.933215  8312 model_lib_v2.py:707] Step 2300 per-step time 3.277s
+INFO:tensorflow:{'Loss/classification_loss': 0.16335537,
+ 'Loss/localization_loss': 0.05216134,
+ 'Loss/regularization_loss': 0.14847124,
+ 'Loss/total_loss': 0.36398792,
+ 'learning_rate': 0.07986114}
+I0718 20:41:12.933215  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.16335537,
+ 'Loss/localization_loss': 0.05216134,
+ 'Loss/regularization_loss': 0.14847124,
+ 'Loss/total_loss': 0.36398792,
+ 'learning_rate': 0.07986114}
+INFO:tensorflow:Step 2400 per-step time 3.233s
+I0718 20:46:36.138499  8312 model_lib_v2.py:707] Step 2400 per-step time 3.233s
+INFO:tensorflow:{'Loss/classification_loss': 0.1517584,
+ 'Loss/localization_loss': 0.04042339,
+ 'Loss/regularization_loss': 0.14789604,
+ 'Loss/total_loss': 0.34007782,
+ 'learning_rate': 0.07983897}
+I0718 20:46:36.138499  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.1517584,
+ 'Loss/localization_loss': 0.04042339,
+ 'Loss/regularization_loss': 0.14789604,
+ 'Loss/total_loss': 0.34007782,
+ 'learning_rate': 0.07983897}
+INFO:tensorflow:Step 2500 per-step time 3.220s
+I0718 20:51:58.172371  8312 model_lib_v2.py:707] Step 2500 per-step time 3.220s
+INFO:tensorflow:{'Loss/classification_loss': 0.09268568,
+ 'Loss/localization_loss': 0.04682311,
+ 'Loss/regularization_loss': 0.1472908,
+ 'Loss/total_loss': 0.28679958,
+ 'learning_rate': 0.079815164}
+I0718 20:51:58.172371  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.09268568,
+ 'Loss/localization_loss': 0.04682311,
+ 'Loss/regularization_loss': 0.1472908,
+ 'Loss/total_loss': 0.28679958,
+ 'learning_rate': 0.079815164}
+INFO:tensorflow:Step 2600 per-step time 3.214s
+I0718 20:57:19.581366  8312 model_lib_v2.py:707] Step 2600 per-step time 3.214s
+INFO:tensorflow:{'Loss/classification_loss': 0.13493738,
+ 'Loss/localization_loss': 0.058628723,
+ 'Loss/regularization_loss': 0.14663401,
+ 'Loss/total_loss': 0.34020013,
+ 'learning_rate': 0.07978972}
+I0718 20:57:19.581366  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.13493738,
+ 'Loss/localization_loss': 0.058628723,
+ 'Loss/regularization_loss': 0.14663401,
+ 'Loss/total_loss': 0.34020013,
+ 'learning_rate': 0.07978972}
+INFO:tensorflow:Step 2700 per-step time 3.218s
+I0718 21:02:41.380725  8312 model_lib_v2.py:707] Step 2700 per-step time 3.218s
+INFO:tensorflow:{'Loss/classification_loss': 0.25034437,
+ 'Loss/localization_loss': 0.09640556,
+ 'Loss/regularization_loss': 0.14690414,
+ 'Loss/total_loss': 0.49365407,
+ 'learning_rate': 0.07976264}
+I0718 21:02:41.396349  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.25034437,
+ 'Loss/localization_loss': 0.09640556,
+ 'Loss/regularization_loss': 0.14690414,
+ 'Loss/total_loss': 0.49365407,
+ 'learning_rate': 0.07976264}
+INFO:tensorflow:Step 2800 per-step time 3.222s
+I0718 21:08:03.633329  8312 model_lib_v2.py:707] Step 2800 per-step time 3.222s
+INFO:tensorflow:{'Loss/classification_loss': 0.11838632,
+ 'Loss/localization_loss': 0.031530414,
+ 'Loss/regularization_loss': 0.14658262,
+ 'Loss/total_loss': 0.29649934,
+ 'learning_rate': 0.07973392}
+I0718 21:08:03.633329  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.11838632,
+ 'Loss/localization_loss': 0.031530414,
+ 'Loss/regularization_loss': 0.14658262,
+ 'Loss/total_loss': 0.29649934,
+ 'learning_rate': 0.07973392}
+INFO:tensorflow:Step 2900 per-step time 3.221s
+I0718 21:13:25.729496  8312 model_lib_v2.py:707] Step 2900 per-step time 3.221s
+INFO:tensorflow:{'Loss/classification_loss': 0.13529545,
+ 'Loss/localization_loss': 0.025314054,
+ 'Loss/regularization_loss': 0.14666405,
+ 'Loss/total_loss': 0.30727357,
+ 'learning_rate': 0.07970358}
+I0718 21:13:25.729496  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.13529545,
+ 'Loss/localization_loss': 0.025314054,
+ 'Loss/regularization_loss': 0.14666405,
+ 'Loss/total_loss': 0.30727357,
+ 'learning_rate': 0.07970358}
+INFO:tensorflow:Step 3000 per-step time 3.220s
+I0718 21:18:47.700736  8312 model_lib_v2.py:707] Step 3000 per-step time 3.220s
+INFO:tensorflow:{'Loss/classification_loss': 0.14277169,
+ 'Loss/localization_loss': 0.029055001,
+ 'Loss/regularization_loss': 0.14612581,
+ 'Loss/total_loss': 0.3179525,
+ 'learning_rate': 0.0796716}
+I0718 21:18:47.716315  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.14277169,
+ 'Loss/localization_loss': 0.029055001,
+ 'Loss/regularization_loss': 0.14612581,
+ 'Loss/total_loss': 0.3179525,
+ 'learning_rate': 0.0796716}
+INFO:tensorflow:Step 3100 per-step time 3.249s
+I0718 21:24:12.608699  8312 model_lib_v2.py:707] Step 3100 per-step time 3.249s
+INFO:tensorflow:{'Loss/classification_loss': 0.15958981,
+ 'Loss/localization_loss': 0.06094345,
+ 'Loss/regularization_loss': 0.14549452,
+ 'Loss/total_loss': 0.36602777,
+ 'learning_rate': 0.07963799}
+I0718 21:24:12.624322  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.15958981,
+ 'Loss/localization_loss': 0.06094345,
+ 'Loss/regularization_loss': 0.14549452,
+ 'Loss/total_loss': 0.36602777,
+ 'learning_rate': 0.07963799}
+INFO:tensorflow:Step 3200 per-step time 3.249s
+I0718 21:29:37.548154  8312 model_lib_v2.py:707] Step 3200 per-step time 3.249s
+INFO:tensorflow:{'Loss/classification_loss': 0.12631842,
+ 'Loss/localization_loss': 0.037930977,
+ 'Loss/regularization_loss': 0.14481176,
+ 'Loss/total_loss': 0.30906117,
+ 'learning_rate': 0.07960275}
+I0718 21:29:37.548154  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.12631842,
+ 'Loss/localization_loss': 0.037930977,
+ 'Loss/regularization_loss': 0.14481176,
+ 'Loss/total_loss': 0.30906117,
+ 'learning_rate': 0.07960275}
+INFO:tensorflow:Step 3300 per-step time 3.271s
+I0718 21:35:04.611906  8312 model_lib_v2.py:707] Step 3300 per-step time 3.271s
+INFO:tensorflow:{'Loss/classification_loss': 0.15165563,
+ 'Loss/localization_loss': 0.06523544,
+ 'Loss/regularization_loss': 0.14415511,
+ 'Loss/total_loss': 0.3610462,
+ 'learning_rate': 0.07956588}
+I0718 21:35:04.611906  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.15165563,
+ 'Loss/localization_loss': 0.06523544,
+ 'Loss/regularization_loss': 0.14415511,
+ 'Loss/total_loss': 0.3610462,
+ 'learning_rate': 0.07956588}
+INFO:tensorflow:Step 3400 per-step time 3.219s
+I0718 21:40:26.505000  8312 model_lib_v2.py:707] Step 3400 per-step time 3.219s
+INFO:tensorflow:{'Loss/classification_loss': 0.1315112,
+ 'Loss/localization_loss': 0.025555234,
+ 'Loss/regularization_loss': 0.14346313,
+ 'Loss/total_loss': 0.30052957,
+ 'learning_rate': 0.079527386}
+I0718 21:40:26.505000  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.1315112,
+ 'Loss/localization_loss': 0.025555234,
+ 'Loss/regularization_loss': 0.14346313,
+ 'Loss/total_loss': 0.30052957,
+ 'learning_rate': 0.079527386}
+INFO:tensorflow:Step 3500 per-step time 3.302s
+I0718 21:45:56.724256  8312 model_lib_v2.py:707] Step 3500 per-step time 3.302s
+INFO:tensorflow:{'Loss/classification_loss': 0.10795302,
+ 'Loss/localization_loss': 0.023403939,
+ 'Loss/regularization_loss': 0.14277701,
+ 'Loss/total_loss': 0.27413398,
+ 'learning_rate': 0.07948727}
+I0718 21:45:56.724256  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.10795302,
+ 'Loss/localization_loss': 0.023403939,
+ 'Loss/regularization_loss': 0.14277701,
+ 'Loss/total_loss': 0.27413398,
+ 'learning_rate': 0.07948727}
+INFO:tensorflow:Step 3600 per-step time 3.221s
+I0718 21:51:18.804802  8312 model_lib_v2.py:707] Step 3600 per-step time 3.221s
+INFO:tensorflow:{'Loss/classification_loss': 0.10232795,
+ 'Loss/localization_loss': 0.031733084,
+ 'Loss/regularization_loss': 0.14207155,
+ 'Loss/total_loss': 0.27613258,
+ 'learning_rate': 0.079445526}
+I0718 21:51:18.804802  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.10232795,
+ 'Loss/localization_loss': 0.031733084,
+ 'Loss/regularization_loss': 0.14207155,
+ 'Loss/total_loss': 0.27613258,
+ 'learning_rate': 0.079445526}
+INFO:tensorflow:Step 3700 per-step time 3.228s
+I0718 21:56:41.619551  8312 model_lib_v2.py:707] Step 3700 per-step time 3.228s
+INFO:tensorflow:{'Loss/classification_loss': 0.12397229,
+ 'Loss/localization_loss': 0.022896878,
+ 'Loss/regularization_loss': 0.14139225,
+ 'Loss/total_loss': 0.2882614,
+ 'learning_rate': 0.07940216}
+I0718 21:56:41.619551  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.12397229,
+ 'Loss/localization_loss': 0.022896878,
+ 'Loss/regularization_loss': 0.14139225,
+ 'Loss/total_loss': 0.2882614,
+ 'learning_rate': 0.07940216}
+INFO:tensorflow:Step 3800 per-step time 3.226s
+I0718 22:02:04.184523  8312 model_lib_v2.py:707] Step 3800 per-step time 3.226s
+INFO:tensorflow:{'Loss/classification_loss': 0.111693665,
+ 'Loss/localization_loss': 0.043945648,
+ 'Loss/regularization_loss': 0.14070398,
+ 'Loss/total_loss': 0.29634327,
+ 'learning_rate': 0.079357184}
+I0718 22:02:04.200145  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.111693665,
+ 'Loss/localization_loss': 0.043945648,
+ 'Loss/regularization_loss': 0.14070398,
+ 'Loss/total_loss': 0.29634327,
+ 'learning_rate': 0.079357184}
+INFO:tensorflow:Step 3900 per-step time 3.247s
+I0718 22:07:28.951973  8312 model_lib_v2.py:707] Step 3900 per-step time 3.247s
+INFO:tensorflow:{'Loss/classification_loss': 0.09594152,
+ 'Loss/localization_loss': 0.024710566,
+ 'Loss/regularization_loss': 0.1400397,
+ 'Loss/total_loss': 0.2606918,
+ 'learning_rate': 0.07931058}
+I0718 22:07:28.951973  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.09594152,
+ 'Loss/localization_loss': 0.024710566,
+ 'Loss/regularization_loss': 0.1400397,
+ 'Loss/total_loss': 0.2606918,
+ 'learning_rate': 0.07931058}
+INFO:tensorflow:Step 4000 per-step time 3.229s
+I0718 22:12:51.751065  8312 model_lib_v2.py:707] Step 4000 per-step time 3.229s
+INFO:tensorflow:{'Loss/classification_loss': 0.090832695,
+ 'Loss/localization_loss': 0.01992575,
+ 'Loss/regularization_loss': 0.13934968,
+ 'Loss/total_loss': 0.25010812,
+ 'learning_rate': 0.07926236}
+I0718 22:12:51.766689  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.090832695,
+ 'Loss/localization_loss': 0.01992575,
+ 'Loss/regularization_loss': 0.13934968,
+ 'Loss/total_loss': 0.25010812,
+ 'learning_rate': 0.07926236}
+INFO:tensorflow:Step 4100 per-step time 3.244s
+I0718 22:18:16.190432  8312 model_lib_v2.py:707] Step 4100 per-step time 3.244s
+INFO:tensorflow:{'Loss/classification_loss': 0.07460086,
+ 'Loss/localization_loss': 0.012300007,
+ 'Loss/regularization_loss': 0.13893342,
+ 'Loss/total_loss': 0.2258343,
+ 'learning_rate': 0.07921253}
+I0718 22:18:16.206052  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.07460086,
+ 'Loss/localization_loss': 0.012300007,
+ 'Loss/regularization_loss': 0.13893342,
+ 'Loss/total_loss': 0.2258343,
+ 'learning_rate': 0.07921253}
+INFO:tensorflow:Step 4200 per-step time 3.224s
+I0718 22:23:38.614648  8312 model_lib_v2.py:707] Step 4200 per-step time 3.224s
+INFO:tensorflow:{'Loss/classification_loss': 0.09075388,
+ 'Loss/localization_loss': 0.021116303,
+ 'Loss/regularization_loss': 0.13828863,
+ 'Loss/total_loss': 0.25015882,
+ 'learning_rate': 0.07916109}
+I0718 22:23:38.630268  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.09075388,
+ 'Loss/localization_loss': 0.021116303,
+ 'Loss/regularization_loss': 0.13828863,
+ 'Loss/total_loss': 0.25015882,
+ 'learning_rate': 0.07916109}
+INFO:tensorflow:Step 4300 per-step time 3.239s
+I0718 22:29:02.554167  8312 model_lib_v2.py:707] Step 4300 per-step time 3.239s
+INFO:tensorflow:{'Loss/classification_loss': 0.13322233,
+ 'Loss/localization_loss': 0.030594226,
+ 'Loss/regularization_loss': 0.13763833,
+ 'Loss/total_loss': 0.3014549,
+ 'learning_rate': 0.07910804}
+I0718 22:29:02.569752  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.13322233,
+ 'Loss/localization_loss': 0.030594226,
+ 'Loss/regularization_loss': 0.13763833,
+ 'Loss/total_loss': 0.3014549,
+ 'learning_rate': 0.07910804}
+INFO:tensorflow:Step 4400 per-step time 3.220s
+I0718 22:34:24.603435  8312 model_lib_v2.py:707] Step 4400 per-step time 3.220s
+INFO:tensorflow:{'Loss/classification_loss': 0.086499415,
+ 'Loss/localization_loss': 0.025983803,
+ 'Loss/regularization_loss': 0.13701639,
+ 'Loss/total_loss': 0.24949962,
+ 'learning_rate': 0.07905338}
+I0718 22:34:24.603435  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.086499415,
+ 'Loss/localization_loss': 0.025983803,
+ 'Loss/regularization_loss': 0.13701639,
+ 'Loss/total_loss': 0.24949962,
+ 'learning_rate': 0.07905338}
+INFO:tensorflow:Step 4500 per-step time 3.313s
+I0718 22:39:55.897830  8312 model_lib_v2.py:707] Step 4500 per-step time 3.313s
+INFO:tensorflow:{'Loss/classification_loss': 0.1326476,
+ 'Loss/localization_loss': 0.039087255,
+ 'Loss/regularization_loss': 0.13638845,
+ 'Loss/total_loss': 0.3081233,
+ 'learning_rate': 0.07899711}
+I0718 22:39:55.897830  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.1326476,
+ 'Loss/localization_loss': 0.039087255,
+ 'Loss/regularization_loss': 0.13638845,
+ 'Loss/total_loss': 0.3081233,
+ 'learning_rate': 0.07899711}
+INFO:tensorflow:Step 4600 per-step time 3.311s
+I0718 22:45:26.991928  8312 model_lib_v2.py:707] Step 4600 per-step time 3.311s
+INFO:tensorflow:{'Loss/classification_loss': 0.10342742,
+ 'Loss/localization_loss': 0.03652609,
+ 'Loss/regularization_loss': 0.13571414,
+ 'Loss/total_loss': 0.27566764,
+ 'learning_rate': 0.078939244}
+I0718 22:45:26.991928  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.10342742,
+ 'Loss/localization_loss': 0.03652609,
+ 'Loss/regularization_loss': 0.13571414,
+ 'Loss/total_loss': 0.27566764,
+ 'learning_rate': 0.078939244}
+INFO:tensorflow:Step 4700 per-step time 3.208s
+I0718 22:50:47.775857  8312 model_lib_v2.py:707] Step 4700 per-step time 3.208s
+INFO:tensorflow:{'Loss/classification_loss': 0.15596081,
+ 'Loss/localization_loss': 0.042234704,
+ 'Loss/regularization_loss': 0.13515352,
+ 'Loss/total_loss': 0.33334905,
+ 'learning_rate': 0.07887978}
+I0718 22:50:47.775857  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.15596081,
+ 'Loss/localization_loss': 0.042234704,
+ 'Loss/regularization_loss': 0.13515352,
+ 'Loss/total_loss': 0.33334905,
+ 'learning_rate': 0.07887978}
+INFO:tensorflow:Step 4800 per-step time 3.237s
+I0718 22:56:11.481062  8312 model_lib_v2.py:707] Step 4800 per-step time 3.237s
+INFO:tensorflow:{'Loss/classification_loss': 0.0754475,
+ 'Loss/localization_loss': 0.02267223,
+ 'Loss/regularization_loss': 0.13456793,
+ 'Loss/total_loss': 0.23268767,
+ 'learning_rate': 0.07881871}
+I0718 22:56:11.496643  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.0754475,
+ 'Loss/localization_loss': 0.02267223,
+ 'Loss/regularization_loss': 0.13456793,
+ 'Loss/total_loss': 0.23268767,
+ 'learning_rate': 0.07881871}
+INFO:tensorflow:Step 4900 per-step time 3.238s
+I0718 23:01:35.233086  8312 model_lib_v2.py:707] Step 4900 per-step time 3.238s
+INFO:tensorflow:{'Loss/classification_loss': 0.09321436,
+ 'Loss/localization_loss': 0.027589204,
+ 'Loss/regularization_loss': 0.13393568,
+ 'Loss/total_loss': 0.25473922,
+ 'learning_rate': 0.07875605}
+I0718 23:01:35.248711  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.09321436,
+ 'Loss/localization_loss': 0.027589204,
+ 'Loss/regularization_loss': 0.13393568,
+ 'Loss/total_loss': 0.25473922,
+ 'learning_rate': 0.07875605}
+INFO:tensorflow:Step 5000 per-step time 3.219s
+I0718 23:06:57.094933  8312 model_lib_v2.py:707] Step 5000 per-step time 3.219s
+INFO:tensorflow:{'Loss/classification_loss': 0.08423141,
+ 'Loss/localization_loss': 0.025325397,
+ 'Loss/regularization_loss': 0.1333028,
+ 'Loss/total_loss': 0.2428596,
+ 'learning_rate': 0.078691795}
+I0718 23:06:57.094933  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.08423141,
+ 'Loss/localization_loss': 0.025325397,
+ 'Loss/regularization_loss': 0.1333028,
+ 'Loss/total_loss': 0.2428596,
+ 'learning_rate': 0.078691795}
+INFO:tensorflow:Step 5100 per-step time 3.229s
+I0718 23:12:20.081479  8312 model_lib_v2.py:707] Step 5100 per-step time 3.229s
+INFO:tensorflow:{'Loss/classification_loss': 0.12190855,
+ 'Loss/localization_loss': 0.023683352,
+ 'Loss/regularization_loss': 0.1327952,
+ 'Loss/total_loss': 0.2783871,
+ 'learning_rate': 0.07862595}
+I0718 23:12:20.081479  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.12190855,
+ 'Loss/localization_loss': 0.023683352,
+ 'Loss/regularization_loss': 0.1327952,
+ 'Loss/total_loss': 0.2783871,
+ 'learning_rate': 0.07862595}
+INFO:tensorflow:Step 5200 per-step time 3.220s
+I0718 23:17:41.990230  8312 model_lib_v2.py:707] Step 5200 per-step time 3.220s
+INFO:tensorflow:{'Loss/classification_loss': 0.11148594,
+ 'Loss/localization_loss': 0.019018047,
+ 'Loss/regularization_loss': 0.13227323,
+ 'Loss/total_loss': 0.2627772,
+ 'learning_rate': 0.07855851}
+I0718 23:17:41.990230  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.11148594,
+ 'Loss/localization_loss': 0.019018047,
+ 'Loss/regularization_loss': 0.13227323,
+ 'Loss/total_loss': 0.2627772,
+ 'learning_rate': 0.07855851}
+INFO:tensorflow:Step 5300 per-step time 3.231s
+I0718 23:23:05.086124  8312 model_lib_v2.py:707] Step 5300 per-step time 3.231s
+INFO:tensorflow:{'Loss/classification_loss': 0.09711284,
+ 'Loss/localization_loss': 0.022252321,
+ 'Loss/regularization_loss': 0.13163248,
+ 'Loss/total_loss': 0.25099763,
+ 'learning_rate': 0.07848949}
+I0718 23:23:05.086124  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.09711284,
+ 'Loss/localization_loss': 0.022252321,
+ 'Loss/regularization_loss': 0.13163248,
+ 'Loss/total_loss': 0.25099763,
+ 'learning_rate': 0.07848949}
+INFO:tensorflow:Step 5400 per-step time 3.229s
+I0718 23:28:27.916496  8312 model_lib_v2.py:707] Step 5400 per-step time 3.229s
+INFO:tensorflow:{'Loss/classification_loss': 0.06492552,
+ 'Loss/localization_loss': 0.02814829,
+ 'Loss/regularization_loss': 0.1310178,
+ 'Loss/total_loss': 0.22409162,
+ 'learning_rate': 0.078418896}
+I0718 23:28:27.932116  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.06492552,
+ 'Loss/localization_loss': 0.02814829,
+ 'Loss/regularization_loss': 0.1310178,
+ 'Loss/total_loss': 0.22409162,
+ 'learning_rate': 0.078418896}
+INFO:tensorflow:Step 5500 per-step time 3.230s
+I0718 23:33:50.981372  8312 model_lib_v2.py:707] Step 5500 per-step time 3.230s
+INFO:tensorflow:{'Loss/classification_loss': 0.09150097,
+ 'Loss/localization_loss': 0.021697547,
+ 'Loss/regularization_loss': 0.13039215,
+ 'Loss/total_loss': 0.24359067,
+ 'learning_rate': 0.078346714}
+I0718 23:33:50.981372  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.09150097,
+ 'Loss/localization_loss': 0.021697547,
+ 'Loss/regularization_loss': 0.13039215,
+ 'Loss/total_loss': 0.24359067,
+ 'learning_rate': 0.078346714}
+INFO:tensorflow:Step 5600 per-step time 3.221s
+I0718 23:39:13.077541  8312 model_lib_v2.py:707] Step 5600 per-step time 3.221s
+INFO:tensorflow:{'Loss/classification_loss': 0.0902671,
+ 'Loss/localization_loss': 0.03146626,
+ 'Loss/regularization_loss': 0.12975006,
+ 'Loss/total_loss': 0.2514834,
+ 'learning_rate': 0.07827295}
+I0718 23:39:13.093164  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.0902671,
+ 'Loss/localization_loss': 0.03146626,
+ 'Loss/regularization_loss': 0.12975006,
+ 'Loss/total_loss': 0.2514834,
+ 'learning_rate': 0.07827295}
+INFO:tensorflow:Step 5700 per-step time 3.292s
+I0718 23:44:42.328274  8312 model_lib_v2.py:707] Step 5700 per-step time 3.292s
+INFO:tensorflow:{'Loss/classification_loss': 0.07187662,
+ 'Loss/localization_loss': 0.026034897,
+ 'Loss/regularization_loss': 0.12922321,
+ 'Loss/total_loss': 0.22713473,
+ 'learning_rate': 0.07819763}
+I0718 23:44:42.343896  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.07187662,
+ 'Loss/localization_loss': 0.026034897,
+ 'Loss/regularization_loss': 0.12922321,
+ 'Loss/total_loss': 0.22713473,
+ 'learning_rate': 0.07819763}
+INFO:tensorflow:Step 5800 per-step time 3.315s
+I0718 23:50:12.453807  8312 model_lib_v2.py:707] Step 5800 per-step time 3.315s
+INFO:tensorflow:{'Loss/classification_loss': 0.08090132,
+ 'Loss/localization_loss': 0.041156366,
+ 'Loss/regularization_loss': 0.12861079,
+ 'Loss/total_loss': 0.25066847,
+ 'learning_rate': 0.07812072}
+I0718 23:50:12.453807  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.08090132,
+ 'Loss/localization_loss': 0.041156366,
+ 'Loss/regularization_loss': 0.12861079,
+ 'Loss/total_loss': 0.25066847,
+ 'learning_rate': 0.07812072}
+INFO:tensorflow:Step 5900 per-step time 3.071s
+I0718 23:55:20.911710  8312 model_lib_v2.py:707] Step 5900 per-step time 3.071s
+INFO:tensorflow:{'Loss/classification_loss': 0.15932818,
+ 'Loss/localization_loss': 0.043216594,
+ 'Loss/regularization_loss': 0.12818763,
+ 'Loss/total_loss': 0.3307324,
+ 'learning_rate': 0.078042254}
+I0718 23:55:20.927334  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.15932818,
+ 'Loss/localization_loss': 0.043216594,
+ 'Loss/regularization_loss': 0.12818763,
+ 'Loss/total_loss': 0.3307324,
+ 'learning_rate': 0.078042254}
+INFO:tensorflow:Step 6000 per-step time 3.045s
+I0719 00:00:25.390038  8312 model_lib_v2.py:707] Step 6000 per-step time 3.045s
+INFO:tensorflow:{'Loss/classification_loss': 0.08573376,
+ 'Loss/localization_loss': 0.025753506,
+ 'Loss/regularization_loss': 0.1275863,
+ 'Loss/total_loss': 0.23907356,
+ 'learning_rate': 0.07796223}
+I0719 00:00:25.394671  8312 model_lib_v2.py:708] {'Loss/classification_loss': 0.08573376,
+ 'Loss/localization_loss': 0.025753506,
+ 'Loss/regularization_loss': 0.1275863,
+ 'Loss/total_loss': 0.23907356,
+ 'learning_rate': 0.07796223}
+
+E:\RealTimeObjectDetection> 
